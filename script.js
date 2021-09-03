@@ -444,147 +444,155 @@ $(window).on('load', function() {
     $('#home .scroll-down').addClass('show');
 });
 
-$(window).scroll(function() {
-    let wScroll = $(this).scrollTop();
-    let windowHeight = $(window).height();
-    let documentHeight = $(document).height();
+let windowWidth = $(window).width();
+
+if (windowWidth > 990) {
+    $(window).scroll(function() {
+        let wScroll = $(this).scrollTop();
+        let windowHeight = $(window).height();
+        let documentHeight = $(document).height();
+        
+        // About Me
+        if (wScroll > $('#about-me').offset().top - 50) {
+            $('#about-me .title').addClass('show');
+            $('#about-me .image').addClass('show');
+            $('#about-me .about-me-desc').addClass('show');
+            $('#about-me .bio').addClass('show');
+        } else {
+            $('#about-me .title').removeClass('show');
+            $('#about-me .image').removeClass('show');
+            $('#about-me .about-me-desc').removeClass('show');
+            $('#about-me .bio').removeClass('show');
+        }
     
-    // About Me
-    if (wScroll > $('#about-me').offset().top - 50) {
-        $('#about-me .title').addClass('show');
-        $('#about-me .image').addClass('show');
-        $('#about-me .about-me-desc').addClass('show');
-        $('#about-me .bio').addClass('show');
-    } else {
-        $('#about-me .title').removeClass('show');
-        $('#about-me .image').removeClass('show');
-        $('#about-me .about-me-desc').removeClass('show');
-        $('#about-me .bio').removeClass('show');
-    }
-
-    // Background
-    if (wScroll > $('#background').offset().top - 50) {
-        $('#background .title').addClass('show');
-        $('#background .illustration').addClass('show');
-        $('#background .timeline').addClass('show');
-        $('#background .back-text').addClass('show');
-    } else {
-        $('#background .title').removeClass('show');
-        $('#background .illustration').removeClass('show');
-        $('#background .timeline').removeClass('show');
-        $('#background .back-text').removeClass('show');
-    }
-
-    // Interest
-    if (wScroll > $('#interest').offset().top - 50) {
-        $('#interest .title').addClass('show');
-        $('#interest .illustration').addClass('show');
-        $('#interest .circle').each(function(i) {
-            setTimeout(function() {
-                $('#interest .circle').eq(i).addClass('show');
-            }, 100 * i);
-        });
-    } else {
-        $('#interest .title').removeClass('show');
-        $('#interest .illustration').removeClass('show');
-        $('#interest .circle').each(function(i) {
-            setTimeout(function() {
-                $('#interest .circle').eq(i).removeClass('show');
-            }, 100 * i);
-        });
-    }
-
-    // Skill
-    if (wScroll > $('#skill').offset().top - 50) {
-        $('#skill .title').addClass('show');
-        $('#skill .illustration').addClass('show');
-        $('#skill .box').each(function(i) {
-            setTimeout(function() {
-                $('#skill .box').eq(i).addClass('show');
-            }, 200 * i);
-        });
-        setTimeout(() => {
-            percentBar.forEach((percent, index) => {
-                percent.style.width = values[index];
+        // Background
+        if (wScroll > $('#background').offset().top - 50) {
+            $('#background .title').addClass('show');
+            $('#background .illustration').addClass('show');
+            $('#background .timeline').addClass('show');
+            $('#background .back-text').addClass('show');
+        } else {
+            $('#background .title').removeClass('show');
+            $('#background .illustration').removeClass('show');
+            $('#background .timeline').removeClass('show');
+            $('#background .back-text').removeClass('show');
+        }
+    
+        // Interest
+        if (wScroll > $('#interest').offset().top - 50) {
+            $('#interest .title').addClass('show');
+            $('#interest .illustration').addClass('show');
+            $('#interest .circle').each(function(i) {
+                setTimeout(function() {
+                    $('#interest .circle').eq(i).addClass('show');
+                }, 100 * i);
             });
-        }, 500);
-    } else {
-        $('#skill .title').removeClass('show');
-        $('#skill .illustration').removeClass('show');
-        $('#skill .box').each(function(i) {
-            setTimeout(function() {
-                $('#skill .box').eq(i).removeClass('show');
-            }, 200 * i);
-        });
-        setTimeout(() => {
-            percentBar.forEach((percent) => {
-                percent.style.width = '0';
+        } else {
+            $('#interest .title').removeClass('show');
+            $('#interest .illustration').removeClass('show');
+            $('#interest .circle').each(function(i) {
+                setTimeout(function() {
+                    $('#interest .circle').eq(i).removeClass('show');
+                }, 100 * i);
             });
-        }, 500);
-    }
-
-    // Project
-    if (wScroll > $('#project').offset().top - 50) {
-        $('#project .title').addClass('show');
-        $('#project .illustration').addClass('show');
-        $('#project .card').each(function(i) {
-            setTimeout(function() {
-                $('#project .card').eq(i).addClass('show');
-            }, 100 * i);
-        });
-    } else {
-        $('#project .title').removeClass('show');
-        $('#project .illustration').removeClass('show');
-        $('#project .card').each(function(i) {
-            setTimeout(function() {
-                $('#project .card').eq(i).removeClass('show');
-            }, 100 * i);
-        });
-    }
-
-    // Certificate
-    if (wScroll > $('#certificate').offset().top - 50) {
-        $('#certificate .title').addClass('show');
-        $('#certificate .illustration').addClass('show');
-        $('#certificate .carousel').addClass('show');
-        $('#certificate .see-more').addClass('show');
-    } else {
-        $('#certificate .title').removeClass('show');
-        $('#certificate .illustration').removeClass('show');
-        $('#certificate .carousel').removeClass('show');
-        $('#certificate .see-more').removeClass('show');
-    }
-
-    // Footer
-    if (wScroll + windowHeight > documentHeight - 50) {
-        $('#footer').addClass('show');
-        $('#footer .footer-link').each(function(i) {
-            setTimeout(function() {
-                $('#footer .footer-link').eq(i).addClass('show');
-            }, 100 * i);
-        });
-        $('#footer .copyright').addClass('show');
-        $('#footer .button').addClass('show');
-        $('#footer .footer-contact').each(function(i) {
-            setTimeout(function() {
-                $('#footer .footer-contact').eq(i).addClass('show');
-            }, 100 * i);
-        });
-        $('#footer .up-button').addClass('show');
-    } else {
-        $('#footer').removeClass('show');
-        $('#footer .footer-link').each(function(i) {
-            setTimeout(function() {
-                $('#footer .footer-link').eq(i).removeClass('show');
-            }, 100 * i);
-        });
-        $('#footer .copyright').removeClass('show');
-        $('#footer .button').removeClass('show');
-        $('#footer .footer-contact').each(function(i) {
-            setTimeout(function() {
-                $('#footer .footer-contact').eq(i).removeClass('show');
-            }, 100 * i);
-        });
-        $('#footer .up-button').removeClass('show');
-    }
-});
+        }
+    
+        // Skill
+        if (wScroll > $('#skill').offset().top - 50) {
+            $('#skill .title').addClass('show');
+            $('#skill .illustration').addClass('show');
+            $('#skill .box').each(function(i) {
+                setTimeout(function() {
+                    $('#skill .box').eq(i).addClass('show');
+                }, 200 * i);
+            });
+            setTimeout(() => {
+                percentBar.forEach((percent, index) => {
+                    percent.style.width = values[index];
+                });
+            }, 500);
+        } else {
+            $('#skill .title').removeClass('show');
+            $('#skill .illustration').removeClass('show');
+            $('#skill .box').each(function(i) {
+                setTimeout(function() {
+                    $('#skill .box').eq(i).removeClass('show');
+                }, 200 * i);
+            });
+            setTimeout(() => {
+                percentBar.forEach((percent) => {
+                    percent.style.width = '0';
+                });
+            }, 500);
+        }
+    
+        // Project
+        if (wScroll > $('#project').offset().top - 50) {
+            $('#project .title').addClass('show');
+            $('#project .illustration').addClass('show');
+            $('#project .card').each(function(i) {
+                setTimeout(function() {
+                    $('#project .card').eq(i).addClass('show');
+                }, 100 * i);
+            });
+        } else {
+            $('#project .title').removeClass('show');
+            $('#project .illustration').removeClass('show');
+            $('#project .card').each(function(i) {
+                setTimeout(function() {
+                    $('#project .card').eq(i).removeClass('show');
+                }, 100 * i);
+            });
+        }
+    
+        // Certificate
+        if (wScroll > $('#certificate').offset().top - 50) {
+            $('#certificate .title').addClass('show');
+            $('#certificate .illustration').addClass('show');
+            $('#certificate .carousel').addClass('show');
+            $('#certificate .see-more').addClass('show');
+        } else {
+            $('#certificate .title').removeClass('show');
+            $('#certificate .illustration').removeClass('show');
+            $('#certificate .carousel').removeClass('show');
+            $('#certificate .see-more').removeClass('show');
+        }
+    
+        // Footer
+        if (wScroll + windowHeight > documentHeight - 50) {
+            $('#footer').addClass('show');
+            $('#footer .footer-link').each(function(i) {
+                setTimeout(function() {
+                    $('#footer .footer-link').eq(i).addClass('show');
+                }, 100 * i);
+            });
+            $('#footer .copyright').addClass('show');
+            $('#footer .button').addClass('show');
+            $('#footer .footer-contact').each(function(i) {
+                setTimeout(function() {
+                    $('#footer .footer-contact').eq(i).addClass('show');
+                }, 100 * i);
+            });
+            $('#footer .up-button').addClass('show');
+        } else {
+            $('#footer').removeClass('show');
+            $('#footer .footer-link').each(function(i) {
+                setTimeout(function() {
+                    $('#footer .footer-link').eq(i).removeClass('show');
+                }, 100 * i);
+            });
+            $('#footer .copyright').removeClass('show');
+            $('#footer .button').removeClass('show');
+            $('#footer .footer-contact').each(function(i) {
+                setTimeout(function() {
+                    $('#footer .footer-contact').eq(i).removeClass('show');
+                }, 100 * i);
+            });
+            $('#footer .up-button').removeClass('show');
+        }
+    });
+} else {
+    percentBar.forEach((percent, index) => {
+        percent.style.width = values[index];
+    });
+}
