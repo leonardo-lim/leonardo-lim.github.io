@@ -59,7 +59,7 @@ const certificatePos = window.scrollY + certificate.getBoundingClientRect().top;
 
 // Variables & Arrays
 let light = true;
-let values = ['95%', '90%', '85%', '80%', '90%', '85%', '85%', '75%', '70%', '65%', '90%', '75%', '80%', '70%'];
+let values = ['95%', '90%', '85%', '80%', '90%', '85%', '85%', '70%', '75%', '80%', '90%', '75%', '90%', '90%', '70%', '80%'];
 let lastScrollTop = 0;
 
 // Event Listeners

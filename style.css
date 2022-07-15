@@ -690,8 +690,20 @@ video {
     background-color: #ffc107;
 }
 
+#project .content .card .card-body .bg-typescript {
+    background-color: #0075c3;
+}
+
 #project .content .card .card-body .bg-jquery {
     background-color: #006eff;
+}
+
+#project .content .card .card-body .bg-react-js {
+    background-color: #202121;
+}
+
+#project .content .card .card-body .bg-next-js {
+    background-color: #000;
 }
 
 #project .content .card .card-body .bg-css {
@@ -720,6 +732,14 @@ video {
 
 #project .content .card .card-body .bg-django {
     background-color: #0d412d;
+}
+
+#project .content .card .card-body .bg-java {
+    background-color: #ed8b00;
+}
+
+#project .content .card .card-body .bg-xml {
+    background-color: #65b102;
 }
 
 #project .content .card .view {
